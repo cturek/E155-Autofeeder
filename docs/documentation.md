@@ -19,7 +19,10 @@ The source code for the project is located in the Github repository [here](https
 | ---- | ----------- | ----- | ---- | ---- |
 | Adafruit Stepper Motor | 324 | 1 | $14.00 |  [link](https://www.adafruit.com/product/324) |
 | ID-12 RFID Reader | EN-11827 | 1 | $32.50 | [link](https://www.sparkfun.com/products/11827) |
+| 125kHz RFID Card | COM-14325 | 2 | $2.10 | [link](https://www.sparkfun.com/products/14325) |
+| Quad 7-Segment Common Anode Display | LTC-4627JS | 1 | $3.57 | [link](https://www.digikey.com/en/products/detail/lite-on-inc./LTC-4627JS/408219) |
+| 2x16 LCD Display | MC21605A6W-FPTLW | 1 | $5.00 | [link](https://www.digikey.com/en/products/detail/midas-displays/MC21605A6W-FPTLW/13970956?utm_adgroup=Optoelectronics&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_DK%2BSuppliers_Midas%20Displays&utm_term=&utm_content=Optoelectronics&gclid=EAIaIQobChMIloym-9yE-wIVniytBh2NSQDmEAQYASABEgK5TfD_BwE) |
 
 
 
-**Total cost: $14.95**
+**Total cost: $57.9**
