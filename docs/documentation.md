@@ -17,8 +17,8 @@ The source code for the project is located in the Github repository [here](https
 
 | Item | Part Number | Quantity | Unit Price | Link |
 | ---- | ----------- | ----- | ---- | ---- |
-| Adafruit Stepper Motor | 324 | 1 | $14.00 |  [link]([https://www.adafruit.com/product/324]) |
-| ID-12 RFID Reader | EN-11827 | 1 | $32.50 | [link]([https://www.sparkfun.com/products/11827]) |
+| Adafruit Stepper Motor | 324 | 1 | $14.00 |  [link](https://www.adafruit.com/product/324) |
+| ID-12 RFID Reader | EN-11827 | 1 | $32.50 | [link](https://www.sparkfun.com/products/11827) |
 
 
 
