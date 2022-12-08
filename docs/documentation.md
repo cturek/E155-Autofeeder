@@ -25,4 +25,4 @@ The source code for the project is located in the Github repository [here](https
 
 
 
-**Total cost: $57.9**
+**Total cost: $57.90**
