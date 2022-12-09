@@ -5,8 +5,8 @@ permalink: /
 exclude: true
 ---
 
-<div style="text-align: left">
-  <img src="./assets/img/Logo.png" alt="logo" width="100" />
+<div style="text-align: center">
+  <img src="./assets/img/Logo.png" alt="logo" width="200" />
 </div>
 
 ## Abstract
