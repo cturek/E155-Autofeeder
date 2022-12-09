@@ -14,13 +14,21 @@ title: Documentation
 </div>
 <p></p><p><center>Figure 1. MCU Schematic.</center></p>
 <div style="text-align: center">
-  <img src="assets/schematics/fpga.jpg" alt="fpga" width="500" />
+  <img src="assets/schematics/fpga.jpg" alt="fpga" width="700" />
 </div>
 <p></p><p><center>Figure 2. FPGA Schematic.</center></p>
 <div style="text-align: center">
-  <img src="assets/schematics/fpga.jpg" alt="fpga" width="500" />
+  <img src="assets/schematics/fpga_blockdiagram.jpg" alt="blockdiagram" width="700" />
 </div>
-<p></p><p><center>Figure 2. FPGA Schematic.</center></p>
+<p></p><p><center>Figure 3. FPGA Block Diagram.</center></p>
+<div style="text-align: center">
+  <img src="assets/schematics/mainfsm.jpg" alt="mainfsm" width="700" />
+</div>
+<p></p><p><center>Figure 4. FPGA Main FSM.</center></p>
+<div style="text-align: center">
+  <img src="assets/schematics/scanner.jpg" alt="scanner" width="500" />
+</div>
+<p></p><p><center>Figure 5. Keypad Scanner FSM.</center></p>
 
 # Source Code Overview
 <!-- This section should include information to describe the organization of the code base and highlight how the code connects. -->
