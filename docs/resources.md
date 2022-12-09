@@ -4,7 +4,7 @@ title: Resources
 permalink: /resources/
 ---
 
-# References
+## References
 
 1. > Tindie, “UPduino v3.1 low cost Lattice iCE40 FPGA board", San Francisco, CA, USA, August 2020. Accessed Nov 17 2022. [Online]. Available at: https://www.tindie.com/products/tinyvision\_ai/upduino-v31-low-cost-lattice-ice40-fpga-board/ 
 
@@ -19,4 +19,4 @@ permalink: /resources/
 6. > STMicroelectronics, “PUSH-PULL FOUR CHANNEL DRIVER WITH DIODES”, Geneva, Switzerland, July 2003. Accessed Nov 17 2022. [Online]. Available at: https://www.arduino.cc/documents/datasheets/H-bridge_motor_driver.PDF
 
 
-# Inspiration
+## Inspiration
