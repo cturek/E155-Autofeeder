@@ -23,7 +23,7 @@ permalink: /
 
 <i>The source code for the project is located in the Github repository [here](https://github.com/cturek/E155-Autofeeder/tree/main/src).</i>
 
-As shown above, the FPGA interfaces with the four digit seven segment display, the four by four keypad, and the motor. 
+As shown above, the FPGA interfaces with the four digit seven segment display, the four by four keypad, and the motor. Each of these interfaces is carried out using an FSM; the more interesting ones (keypad and display) are shown above, while the motor FSM is trivial and is not shown. The FPGA encodes its display state as a 3 bit signal and sends it over to the MCU.
 
 # Bill of Materials
 <!-- The bill of materials should include all the parts used in your project along with the prices and links.  -->
