@@ -10,8 +10,8 @@ permalink: /doc/
 
 # Schematics
 <!-- Include images of the schematics for your system. They should follow best practices for schematic drawings with all parts and pins clearly labeled. You may draw your schematics either with a software tool or neatly by hand. -->
-<div style="text-align: left">
-  <img src="./assets/schematics/E155 MCU Schematics.png" alt="mcuschematics" width="750" />
+<div style="text-align: center">
+  <img src="./assets/schematics/E155_MCU_Schematics.png" alt="mcuschematics" width="750" />
 </div>
 
 # Source Code Overview
