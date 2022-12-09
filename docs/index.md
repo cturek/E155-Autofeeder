@@ -37,5 +37,5 @@ The FPGA interfaces with an LED display, a keypad, and a motor. The MCU interfac
 
 In the figure below, the top breadboard connects the MCU (white) with the LCD and the RFID reader (floating, black). The bottom breadboard connects the FPGA (blue), the keypad, the LED display, and the motor (under the autofeeder housing).
 <div style="text-align: center">
-  <img src="assets/img/bigpicture.jpg" alt="bigpicture" width="900" />
+  <img src="assets/img/bigpicture.jpg" alt="bigpicture" width="1000" />
 </div>
