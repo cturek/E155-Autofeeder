@@ -3,9 +3,9 @@ layout: page
 title: Design
 ---
 
-# Mechanical Design
+## Mechanical Design
 
-## Autofeeder Parts
+# Autofeeder Parts
 
 The physical autofeeder consists of four 3D printed parts and a Nema-17 12V stepper motor. The exact motor used is listed in the [resources page](https://cturek.github.io/E155-Autofeeder/resources/).
 
@@ -37,4 +37,12 @@ The fully assembled autofeeder should look something like this:
 
 <div style="text-align: center">
   <img src="assets/img/autofeeder.PNG" alt="full" width="500" />
+</div>
+
+or in the real world, like this:
+
+<div style="text-align: center">
+  <img src="assets/img/real.jpg" alt="real" width="500" />
+</div><div style="text-align: center">
+  <img src="assets/img/topdown.jpg" alt="top" width="500" />
 </div>
