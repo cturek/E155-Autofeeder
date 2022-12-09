@@ -4,6 +4,10 @@ title: Documentation
 permalink: /doc/
 ---
 
+<font face = "Courier New" size = "3">
+**your code here**
+</font><br />
+
 # Schematics
 <!-- Include images of the schematics for your system. They should follow best practices for schematic drawings with all parts and pins clearly labeled. You may draw your schematics either with a software tool or neatly by hand. -->
 <div style="text-align: left">
