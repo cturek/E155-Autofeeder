@@ -20,7 +20,7 @@ title: Resources
 
 ## Inspiration
 
-The inspiration for this project came from Manuel's two cats. He bought an auto feeder online well before the second cat was adopted, where it met every needed from an auto feeder *NOT SURE WHAT YOURE SAYING HERE*. When the second cat was adopted, it brought challenges that were not expected; for one, it was not ideal to have an single small tray for both cats to feed from. And simply buying a second autofeeder was not a desirable option, as they can be quite costly. So we set out to make an autofeeder with customizable lower sections that could accomodate different feeding trays for varying numbers of cats. Due to time constraints, the mechanical aspect of the E155 project was limited to simply having one feeding tray, but the hope is that the we can continue on this project in the future and complete the goal of having customizable amounts!
+The inspiration for this project came from Manuel's two cats. Before the second cat was adopted, the first cat had an autofeeder all to himself. When the second cat was adopted, it brought challenges that were not expected; for one, it was not ideal to have an single small tray for both cats to feed from. And simply buying a second autofeeder was not a desirable option, as they can be quite costly. So we set out to make an autofeeder with customizable lower sections that could accomodate different feeding trays for varying numbers of cats. Due to time constraints, the mechanical aspect of the E155 project was limited to simply having one feeding tray, but the hope is that the we can continue on this project in the future and complete the goal of having customizable amounts!
 
 
 <div style="text-align: center">
