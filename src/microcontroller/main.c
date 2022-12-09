@@ -2,7 +2,7 @@
     Main: Containts main function of microcontroller controlled peripherals: LCD screen and RFID sensor
     @file main.c
     @author Manuel Mendoza
-    @version 1.0 12/2/2022
+    @version 1.0 12/8/2022
 */
 #include <stdio.h>
 #include <stm32l432xx.h>
