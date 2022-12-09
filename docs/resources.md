@@ -20,3 +20,5 @@ permalink: /resources/
 
 
 ## Inspiration
+
+The inspiration for this project came from the two cats the one of the team members owns. The team member bought an auto feeder online well before the second cat was adopted, where it met every needed from an auto feeder. When the second cat was adopted, it brought challenges that were not expected, such as having an extremely small tray for both cats to feed from. Simply buying a second autofeeder was not exactly an option that was desired, as they can be quite costly. So the team set out to make an autofeeder with customizable lower sections that could accomodate different feeding trays for varying numbers of cats. Due to time constraints, the mechanical aspect of the E155 project was limited to simply having one feeding tray, but the hope is that the team can continue on this project in the future and complete the goal of having customizable amounts!
