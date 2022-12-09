@@ -7,37 +7,26 @@ title: Documentation
 **your code here**
 </font><br />
 
-## Schematics
+# Schematics
 <!-- Include images of the schematics for your system. They should follow best practices for schematic drawings with all parts and pins clearly labeled. You may draw your schematics either with a software tool or neatly by hand. -->
 <div style="text-align: center">
   <img src="assets/schematics/E155_MCU_Schematics.png" alt="mcuschematics" width="750" />
 </div>
-<p></p><p><center>Figure 1. MCU Schematic.</center></p>
-<div style="text-align: center">
-  <img src="assets/schematics/fpga.jpg" alt="fpga" width="700" />
-</div>
-<p></p><p><center>Figure 2. FPGA Schematic.</center></p>
-<div style="text-align: center">
-  <img src="assets/schematics/fpga_blockdiagram.jpg" alt="blockdiagram" width="700" />
-</div>
-<p></p><p><center>Figure 3. FPGA Block Diagram.</center></p>
-<div style="text-align: center">
-  <img src="assets/schematics/mainfsm.jpg" alt="mainfsm" width="700" />
-</div>
-<p></p><p><center>Figure 4. FPGA Main FSM.</center></p>
-<div style="text-align: center">
-  <img src="assets/schematics/scanner.jpg" alt="scanner" width="500" />
-</div>
-<p></p><p><center>Figure 5. Keypad Scanner FSM.</center></p>
 
-## Source Code Overview
+<div style="text-align: center">
+  <img src="assets/schematics/fpga.jpg" alt="fpga" width="500" />
+</div>
+
+# Source Code Overview
 <!-- This section should include information to describe the organization of the code base and highlight how the code connects. -->
 
 <i>The source code for the project is located in the Github repository [here](https://github.com/cturek/E155-Autofeeder/tree/main/src).</i>
 
 As shown above, the FPGA interfaces with the four digit seven segment display, the four by four keypad, and the motor. Each of these interfaces is carried out using an FSM; the more interesting ones (keypad and display) are shown above, while the motor FSM is trivial and is not shown. The FPGA encodes its display state as a 3 bit signal and sends it over to the MCU.
 
-# FPGA
+The MCU interfaces with two different peripherals, a character LCD and a RFID reader. Whenever the correct card (for example if the user has multiple pets) is waved in front of the reader, the MCU will send a signal over to the FPGA. As for the LCD, it displays the different configuration states that the autofeeder is in, with the information for what to display being sent over by the FPGA on the 3 bit signal.
+
+## FPGA
 
 The FPGA will control the 4 x 4 keypad, the four digit 7-segment display, and the motor used to rotate the feed tray. The motor operates on 12V while the FPGA sets pins to 3.3V, so it needs a motor driver.
 
@@ -47,12 +36,17 @@ Second, the four digit 7-segment display actually has five common anodes: one fo
 
 The final piece of hardware that the FPGA controls is the stepper motor. We are using a NEMA 17 bipolar stepper rated at 12V[<sup>5</sup>](https://cturek.github.io/E155-Autofeeder/resources/). It offers 200 steps per revolution, and can operate at 60 RPM. To give enough voltage and current to this motor, we are using the STM L293D[<sup>6</sup>](https://cturek.github.io/E155-Autofeeder/resources/) push/pull channel driver as an H-bridge. 
 
-# MCU
+## MCU
 
-The MCU interfaces with two different peripherals, a character LCD and a RFID reader. Whenever the correct card is waved in front of the reader, the MCU will send a signal over to the FPGA. As for the LCD, it displays the different configuration states that the autofeeder is in, with the information for what to display being sent over by the FPGA on the 3 bit signal.
+The MCU will control the character LCD, as well as receive information from the RFID reader.
+
+The RFID reader will sit in an idle state and wait for a card to be detected in front of it. When a card is detected, the reader sends a signal high to the MCU. This signal will trigger an interrupt which initiates a USART transaction. The RFID reader will be configured to ASCII mode, where it will send the ID of the card in ASCII format over USART into the MCU. The MCU will then decode the ASCII from the serial transaction, and if the correct card is detected, it will send a signal to the FPGA.
+
+The character LCD will display the many different states that the autofeeder can be in, such as asking the user to input feed times, displaying the world time, or even the current feed amount. This state will be determined by the 3 bit signal the FPGA sends, where the MCU will begin to decode the signal after the FPGA first triggers an interrupt on it on another wire.
+The function behind the character LCD and how to write characters to it is quite simple. It has 8 different pins which correspond to 8 bits representing an ASCII character. To write, the "Register Select" pin needs to be set high, while the "Read/Write" pin needs to be set low. Lastly to input the desired character onto the LCD, the enable bit needs to be toggled high and then low, with whatever delay the datasheet asks for. For example, if one wanted to write an "A" onto the LCD, they would write a "01000001" on pins DB7-DB0, set RS to 0, set R/W to 1, and then toggle E high and low. After a character is written, the LCD automatically sets the cursor to the next open space. If the user wants to write on  the second line, they would need to set the cursor address to whatever address the first space of the second line has. The instructions to do special functions like these are described in the datasheet for the LCD.
 
 
-## Bill of Materials
+# Bill of Materials
 <!-- The bill of materials should include all the parts used in your project along with the prices and links.  -->
 
 | Item | Part Number | Quantity | Unit Price | Link |
