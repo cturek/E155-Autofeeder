@@ -33,4 +33,4 @@ We consider this project a great success.
 
 # Video Demonstration
 
-<iframe width="560" height="315" src="https://youtu.be/lRMq9qJNIq8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=lRMq9qJNIq8&ab_channel=JoshBrake" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
