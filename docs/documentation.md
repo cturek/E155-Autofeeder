@@ -24,6 +24,8 @@ title: Documentation
 
 As shown above, the FPGA interfaces with the four digit seven segment display, the four by four keypad, and the motor. Each of these interfaces is carried out using an FSM; the more interesting ones (keypad and display) are shown above, while the motor FSM is trivial and is not shown. The FPGA encodes its display state as a 3 bit signal and sends it over to the MCU.
 
+The MCU interfaces with two different peripherals, a character LCD and a RFID reader. Whenever the correct card is waved in front of the reader, the MCU will send a signal over to the FPGA. As for the LCD, it displays the different configuration states that the autofeeder is in, with the information for what to display being sent over by the FPGA on the 3 bit signal.
+
 ## FPGA
 
 The FPGA will control the 4 x 4 keypad, the four digit 7-segment display, and the motor used to rotate the feed tray. The motor operates on 12V while the FPGA sets pins to 3.3V, so it needs a motor driver.
