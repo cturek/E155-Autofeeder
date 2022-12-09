@@ -6,6 +6,8 @@ theme: minima
 header-pages:
   - documentation.html
   - resources.html
+  - design.html
+  - index.html
 
 
 # Github Pages settings that cannot be changed
