@@ -34,7 +34,7 @@ title: Documentation
 
 # MCU
 
-The MCU will control the character LCD[<sup>3</sup>](https://cturek.github.io/E155-Autofeeder/resources/), as well as receive information from the RFID reader[<sup>4</sup>](https://cturek.github.io/E155-Autofeeder/resources/).
+The MCU will control the character LCD[<sup>3</sup>](https://cturek.github.io/E155-Autofeeder/resources.html), as well as receive information from the RFID reader[<sup>4</sup>](https://cturek.github.io/E155-Autofeeder/resources.html).
 
 The RFID reader will sit in an idle state and wait for a card to be detected in front of it. When a card is detected, the reader sends a signal high to the MCU. This signal will trigger an interrupt which initiates a USART transaction. The RFID reader will be configured to ASCII mode, where it will send the ID of the card in ASCII format over USART into the MCU. The MCU will then decode the ASCII from the serial transaction, and if the correct card is detected, it will send a signal to the FPGA.
 
@@ -52,7 +52,7 @@ Since we are not interested in typing letters, we configure three of the six non
 
 Second, the four digit 7-segment display actually has five common anodes: one for each of the digits, and one more for the central colon and degree symbol. Thus, we have to keep track of four different digit values now and must also come up with a way to display the colon properly. Implementing this is not so hard; all we need to do is add two more shifts to go to the third and fourth digits. The colon only has two states: displayed (for clock) or hidden (for feed amount), so it will not be hard to send bits high or low depending on the internal FSM. 
 
-The final piece of hardware that the FPGA controls is the stepper motor. We are using a NEMA 17 bipolar stepper rated at 12V[<sup>5</sup>](https://cturek.github.io/E155-Autofeeder/resources/). It offers 200 steps per revolution, and can operate at 60 RPM. However, the motor operates on 12V at 350mA while the FPGA sets pins to 3.3V with near zero current. To give enough voltage and current to this motor, we are using the STM L293D[<sup>6</sup>](https://cturek.github.io/E155-Autofeeder/resources/) push/pull channel driver as a dual H-bridge. 
+The final piece of hardware that the FPGA controls is the stepper motor. We are using a NEMA 17 bipolar stepper rated at 12V[<sup>5</sup>](https://cturek.github.io/E155-Autofeeder/resources.html). It offers 200 steps per revolution, and can operate at 60 RPM. However, the motor operates on 12V at 350mA while the FPGA sets pins to 3.3V with near zero current. To give enough voltage and current to this motor, we are using the STM L293D[<sup>6</sup>](https://cturek.github.io/E155-Autofeeder/resources.html) push/pull channel driver as a dual H-bridge. 
 
 ## Bill of Materials
 <!-- The bill of materials should include all the parts used in your project along with the prices and links.  -->

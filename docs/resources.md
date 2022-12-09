@@ -27,8 +27,4 @@ The inspiration for this project came from Manuel's two cats. Before the second 
   <img src="./assets/img/cats.jpeg" alt="cats" width="800" />
 </div>
 
-<<<<<<< HEAD
 <p></p><center>Pepper (Left) and Mashed Potato (Right), the Inspiration for this Project</center>
-=======
-<p></p><center>Pepper (left) and Mashed Potato (right), the Inspiration for this Project</center>
->>>>>>> 03eb8b10b1a95de8b5c99f847878712ae90918d0

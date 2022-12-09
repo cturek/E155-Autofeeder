@@ -7,7 +7,7 @@ title: Design
 
 # Autofeeder Parts
 
-The physical autofeeder consists of four 3D printed parts and a Nema-17 12V stepper motor. The exact motor used is listed in the [resources page](https://cturek.github.io/E155-Autofeeder/resources/).
+The physical autofeeder consists of four 3D printed parts and a Nema-17 12V stepper motor. The exact motor used is listed in the [bill of materials](https://cturek.github.io/E155-Autofeeder/documentation.html).
 
 The base of the autofeeder has a small tray for holding food, a hole to allow the motor through, and six slots for the food container to fit in. The most important part of the autofeeder is the tube which connects the top and the feed tray. 
 
