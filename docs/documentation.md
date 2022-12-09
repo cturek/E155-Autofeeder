@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Documentation
+permalink: /
 ---
 
 <font face = "Courier New" size = "3">
@@ -16,7 +17,9 @@ title: Documentation
 # Source Code Overview
 <!-- This section should include information to describe the organization of the code base and highlight how the code connects. -->
 
-## The source code for the project is located in the Github repository [here](https://github.com/cturek/E155-Autofeeder/tree/main/src).
+<i>The source code for the project is located in the Github repository [here](https://github.com/cturek/E155-Autofeeder/tree/main/src).</i>
+
+As shown above, the FPGA interfaces with the four digit seven segment display, the four by four keypad, and the motor. 
 
 # Bill of Materials
 <!-- The bill of materials should include all the parts used in your project along with the prices and links.  -->
