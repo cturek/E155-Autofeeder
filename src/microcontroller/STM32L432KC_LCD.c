@@ -6,7 +6,7 @@
 #include "STM32L432KC_GPIO.h"
 #include "STM32L432KC_RCC.h"
 #include "STM32L432KC_TIM.h"
-//#include <stm32l432xx.h>
+#include <stm32l432xx.h>
 #include <string.h>
 
 // Initalize timer for delays
@@ -27,17 +27,7 @@ void initLCD2() {
   pinMode(DB5, GPIO_OUTPUT);  // DB5
   pinMode(DB6, GPIO_OUTPUT);  // DB6 
   pinMode(DB7, GPIO_OUTPUT);  // DB7 
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD2, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD7, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD6, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD5, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD4, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD3, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD2, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD1, 0b10); // Set PB0 as pull-down
-  //GPIOA->PUPDR |= _VAL2FLD(GPIO_PUPDR_PUPD0, 0b10); // Set PB0 as pull-down
-
-
+  
   digitalWrite(RS, 0);
   digitalWrite(RW, 0);
   digitalWrite(E, 0);
