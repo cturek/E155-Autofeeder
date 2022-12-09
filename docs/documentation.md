@@ -34,7 +34,7 @@ title: Documentation
 
 # MCU
 
-The MCU will control the character LCD, as well as receive information from the RFID reader.
+The MCU will control the character LCD[<sup>3</sup>](https://cturek.github.io/E155-Autofeeder/resources/), as well as receive information from the RFID reader[<sup>4</sup>](https://cturek.github.io/E155-Autofeeder/resources/).
 
 The RFID reader will sit in an idle state and wait for a card to be detected in front of it. When a card is detected, the reader sends a signal high to the MCU. This signal will trigger an interrupt which initiates a USART transaction. The RFID reader will be configured to ASCII mode, where it will send the ID of the card in ASCII format over USART into the MCU. The MCU will then decode the ASCII from the serial transaction, and if the correct card is detected, it will send a signal to the FPGA.
 
