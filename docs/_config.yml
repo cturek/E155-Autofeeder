@@ -9,6 +9,7 @@ header-pages:
   - resources.html
   - design.html
   - index.html
+  - results.html
 
 
 # Github Pages settings that cannot be changed
