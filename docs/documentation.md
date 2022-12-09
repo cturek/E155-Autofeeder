@@ -12,10 +12,15 @@ title: Documentation
 <div style="text-align: center">
   <img src="assets/schematics/E155_MCU_Schematics.png" alt="mcuschematics" width="750" />
 </div>
-
+<p></p><p><center>Figure 1. MCU Schematic.</center></p>
 <div style="text-align: center">
   <img src="assets/schematics/fpga.jpg" alt="fpga" width="500" />
 </div>
+<p></p><p><center>Figure 2. FPGA Schematic.</center></p>
+<div style="text-align: center">
+  <img src="assets/schematics/fpga.jpg" alt="fpga" width="500" />
+</div>
+<p></p><p><center>Figure 2. FPGA Schematic.</center></p>
 
 # Source Code Overview
 <!-- This section should include information to describe the organization of the code base and highlight how the code connects. -->

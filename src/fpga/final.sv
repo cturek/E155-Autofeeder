@@ -34,8 +34,6 @@ module top (
 	// Defining a 6MHz clock
 	HSOSC #(.CLKHF_DIV(2'b11)) hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 		
-	// SPI
-		
 	// Choose what digit to display
 	DisplaySel SelectFive(.clk, 
 						  .digit, .L1, .L2, .L3, .L4, .LC);
@@ -80,14 +78,14 @@ module FeedMachine(input  logic slwclk, reset,
 	logic [2:0] cnt; // number of buttons already pushed
 	logic [3:0] digit;
 	
-	logic [3:0] IT1, IT2, IT3, IT4; // Input World Time:	{IT1 IT2 : IT3 IT4}
-	logic [3:0] WT1, WT2, WT3, WT4; // Current World Time: 	{WT1 WT2 : WT3 WT4}
-	logic [3:0] PrevWT1, PrevWT2, PrevWT3, PrevWT4; // Previous World Time (for revert)
-	logic [3:0] FT1, FT2, FT3, FT4; // Current Feed Time: 	{FT1 FT2 : FT3 FT4}
-	logic [3:0] PrevFT1, PrevFT2, PrevFT3, PrevFT4; // Previous Feed Time (for revert)
-	logic [3:0] RFIDFT1, RFIDFT2, RFIDFT3, RFIDFT4; // Internal Feed Times (for RFID mode only)
-	logic [3:0] FA3, FA4; // Current Feed Amount : {Blank Blank FA3 FA4}
-	logic [3:0] PrevFA3, PrevFA4; // Previous Feed Amount (for revert)
+	logic [3:0] IT1, IT2, IT3, IT4; 				// Input World Time:	{IT1 IT2 : IT3 IT4}
+	logic [3:0] WT1, WT2, WT3, WT4; 				// Current World Time: 	{WT1 WT2 : WT3 WT4}
+	logic [3:0] PrevWT1, PrevWT2, PrevWT3, PrevWT4; // Previous World Time 	(for revert)
+	logic [3:0] FT1, FT2, FT3, FT4; 				// Current Feed Time: 	{FT1 FT2 : FT3 FT4}
+	logic [3:0] PrevFT1, PrevFT2, PrevFT3, PrevFT4; // Previous Feed Time 	(for revert)
+	logic [3:0] RFIDFT1, RFIDFT2, RFIDFT3, RFIDFT4; // Internal Feed Times 	(for RFID mode only)
+	logic [3:0] FA3, FA4; 							// Current Feed Amount: {Blank Blank FA3 FA4}
+	logic [3:0] PrevFA3, PrevFA4; 					// Previous Feed Amount (for revert)
 	
 	// state declaration
 	statetype state, nextstate;
@@ -156,7 +154,7 @@ module FeedMachine(input  logic slwclk, reset,
 	// next state logic //
 	/////////////////////
 	always_comb 
-		case (state)
+		case (state) 						// SEE FSM SCHEMATIC FOR NEXT STATES
 			RES: 	begin				
 						nextstate = WRLD;
 						stinterrupt = 1;
@@ -244,7 +242,7 @@ module FeedMachine(input  logic slwclk, reset,
 			if (WT4 == 9) 
 				if (WT3 == 5)
 					if (WT2 == 9)
-						if (WT1 == 5) begin
+						if (WT1 == 5) begin				// upcounting clock, changes on 59:59
 							WT1 <= 0;
 							WT2 <= 0;
 							WT3 <= 0;
@@ -277,7 +275,7 @@ module FeedMachine(input  logic slwclk, reset,
 			if (PrevWT4 == 9) 
 				if (PrevWT3 == 5)
 					if (PrevWT2 == 9)
-						if (PrevWT1 == 5) begin
+						if (PrevWT1 == 5) begin			// upcounting clock, changes on 59:59
 							PrevWT1 <= 0;
 							PrevWT2 <= 0;
 							PrevWT3 <= 0;
@@ -306,11 +304,12 @@ module FeedMachine(input  logic slwclk, reset,
 				PrevWT3 <= PrevWT3;
 				PrevWT4 <= PrevWT4 + 1;
 			end
+
 			// Revert counter
 			if (RFIDFT4 == 0) 
 				if (RFIDFT3 == 0)
 					if (RFIDFT2 == 0)
-						if (RFIDFT1 == 0) begin
+						if (RFIDFT1 == 0) begin 		// downcounting clock, changes on zeroes
 							if (feedstart) begin
 								RFIDFT1 <= FT1;
 								RFIDFT2 <= FT2;
@@ -381,14 +380,14 @@ module FeedMachine(input  logic slwclk, reset,
 		//	  ||  ||  	  ||||||| 	|||     ||	||||||||||	||||||||	//
 		//																//
 		//////////////////////////////////////////////////////////////////
-		else if (state == WRLD) begin
+		else if (state == WRLD) begin			// display current time
 			cnt <= 0;
 			D1 <= WT1;
 			D2 <= WT2;
 			D3 <= WT3;
 			D4 <= WT4;
 			DC <= flashing; 
-		end else if (state == WSTR) begin
+		end else if (state == WSTR) begin		// transition state
 			PrevWT1 <= WT1;
 			PrevWT2 <= WT2;
 			PrevWT3 <= WT3;
@@ -398,10 +397,10 @@ module FeedMachine(input  logic slwclk, reset,
 			D3 <= 4'b1110;
 			D4 <= 4'b1110;
 			DC <= 4'b1111;
-		end else if (state == WRWT) begin
+		end else if (state == WRWT) begin		// rewrite current time
 			if (DigitPressed) begin
 				cnt <= cnt + 1;
-				if (cnt == 0) begin
+				if (cnt == 0) begin					// first digit
 					WT1 <= digit;
 					D1  <= digit;
 					if ((digit == 6) |
@@ -414,10 +413,10 @@ module FeedMachine(input  logic slwclk, reset,
 						WT3 <= PrevWT3;
 						WT4 <= PrevWT4;
 					end
-				end else if (cnt == 1) begin
+				end else if (cnt == 1) begin		// second digit
 					WT2 <= digit;
 					D2  <= digit;
-				end else if (cnt == 2) begin
+				end else if (cnt == 2) begin		// third digit
 					WT3 <= digit;
 					D3  <= digit;
 					if ((digit == 6) |
@@ -430,11 +429,11 @@ module FeedMachine(input  logic slwclk, reset,
 						WT3 <= PrevWT3;
 						WT4 <= PrevWT4;
 					end
-				end else if (cnt == 3) begin
+				end else if (cnt == 3) begin		// fourth digit
 					WT4 <= digit;
 					D4  <= digit;
 				end
-			end else if (edit) begin
+			end else if (edit) begin				// revert by user
 				cnt <= 4;
 				WT1 <= PrevWT1;
 				WT2 <= PrevWT2;
@@ -453,7 +452,7 @@ module FeedMachine(input  logic slwclk, reset,
 		//  |||			||||||||||	||||||||||	||||||||				||		||||||||||	||      ||	||||||||||	//
 		//																											//
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		else if (state == FDTM) begin
+		else if (state == FDTM) begin		// display feed time, conditional on mode
 			cnt <= 0;
 			if (RFID) begin
 				D1 <= RFIDFT1;
@@ -468,7 +467,7 @@ module FeedMachine(input  logic slwclk, reset,
 				D4 <= FT4;
 				DC <= 4'b1111;
 			end
-		end else if (state == FSTR) begin
+		end else if (state == FSTR) begin 	// transition state
 			PrevFT1 <= FT1;
 			PrevFT2 <= FT2;
 			PrevFT3 <= FT3;
@@ -478,10 +477,10 @@ module FeedMachine(input  logic slwclk, reset,
 			D3 <= 4'b1110;
 			D4 <= 4'b1110;
 			DC <= 4'b1111;
-		end else if (state == FRWT) begin
+		end else if (state == FRWT) begin	// rewrite feed time, conditional on mode
 			if (DigitPressed) begin
 				cnt <= cnt + 1;
-				if (cnt == 0) begin
+				if (cnt == 0) begin 			// first digit
 					FT1 <= digit;
 					D1  <= digit;
 					if ((digit == 6) |
@@ -494,10 +493,10 @@ module FeedMachine(input  logic slwclk, reset,
 						FT3 <= PrevFT3;
 						FT4 <= PrevFT4;
 					end
-				end else if (cnt == 1) begin
+				end else if (cnt == 1) begin	// second digit
 					FT2 <= digit;
 					D2  <= digit;
-				end else if (cnt == 2) begin
+				end else if (cnt == 2) begin	// third digit
 					FT3 <= digit;
 					D3  <= digit;
 					if ((digit == 6) |
@@ -510,7 +509,7 @@ module FeedMachine(input  logic slwclk, reset,
 						FT3 <= PrevFT3;
 						FT4 <= PrevFT4;
 					end
-				end else if (cnt == 3) begin
+				end else if (cnt == 3) begin	// fourth digit
 					FT4 <= digit;
 					D4  <= digit;
 					RFIDFT1 <= FT1;
@@ -518,7 +517,7 @@ module FeedMachine(input  logic slwclk, reset,
 					RFIDFT3 <= FT3;
 					RFIDFT4 <= FT4;
 				end
-			end else if (edit) begin
+			end else if (edit) begin			// revert by user
 				cnt <= 4;
 				FT1 <= PrevFT1;
 				FT2 <= PrevFT2;
@@ -537,14 +536,14 @@ module FeedMachine(input  logic slwclk, reset,
 		//  |||     ||	||      ||	  |||||||  	  ||||||| 	|||    |||		||		//
 		//																			//
 		//////////////////////////////////////////////////////////////////////////////
-		else if (state == FAMT) begin
+		else if (state == FAMT) begin 		// display amount
 			cnt <= 0;
 			D1 <= 4'b1110;
 			D2 <= 4'b1110;
 			D3 <= FA3;
 			D4 <= FA4;
 			DC <= 4'b1110;
-		end else if (state == ASTR) begin
+		end else if (state == ASTR) begin 	// transition state
 			PrevFA3 <= FA3;
 			PrevFA4 <= FA4;
 			D1 <= 8'b1110;
@@ -552,17 +551,17 @@ module FeedMachine(input  logic slwclk, reset,
 			D3 <= 8'b1110;
 			D4 <= 8'b1110;
 			DC <= 8'b1110;
-		end else if (state == ARWT) begin
+		end else if (state == ARWT) begin	// rewrite amount
 			if (DigitPressed) begin
 				cnt <= cnt + 1;
-				if (cnt == 0) begin
+				if (cnt == 0) begin				// first digit
 					FA3 <= digit;
 					D3  <= digit;
-				end else if (cnt == 1) begin
+				end else if (cnt == 1) begin	// second digit
 					FA4 <= digit;
 					D4  <= digit;
 				end
-			end else if (edit) begin
+			end else if (edit) begin			// revert by user
 				cnt <= 2;
 				FA3 <= PrevFA3;
 				FA4 <= PrevFA4;
@@ -594,9 +593,9 @@ module FeedMachine(input  logic slwclk, reset,
 					.M1, .M1B, .M2, .M2B);
 endmodule
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- // 									                     MotorControl 	                           									 //
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////
+ //									MotorControl 								 //
+//////////////////////////////////////////////////////////////////////////////////
 
 /*
 Controls motor when it's time
@@ -631,7 +630,7 @@ module MotorControl(input  logic slwclk, reset, feedstart,
 		
 	always_ff @(posedge slwclk) begin
 		QStepCounter <= QStepCounter + 1;
-		if (state == IDLE) begin 
+		if (state == IDLE) begin	// Set internal signals low
 			QStepCounter <= 0;
 			RevCounter <= 0;
 			Finished <= 0;
@@ -639,7 +638,7 @@ module MotorControl(input  logic slwclk, reset, feedstart,
 			M1B <= 0;
 			M2 <= 0;
 			M2B <= 0;
-		end else if (state == BUSY)
+		end else if (state == BUSY)	// Motor rotates
 			if (RevCounter == (FA3 * 10 + FA4)) Finished <= 1;
 			if (QStepCounter == 5000) begin
 				M1 <= 1;
@@ -668,7 +667,7 @@ module MotorControl(input  logic slwclk, reset, feedstart,
 					RevCounter <= RevCounter + 1;
 				end
 			end
-		else if (state == DONE) begin
+		else if (state == DONE) begin // Transition State
 			M1 <= 0;
 			M1B <= 0;
 			M2 <= 0;
@@ -677,9 +676,9 @@ module MotorControl(input  logic slwclk, reset, feedstart,
 	end
 endmodule
 
-/////////////////////////
-// DigitButtonPressed //
-///////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+ //										DigitButtonPressed										//
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
 Checks to see if a digit is pressed
@@ -711,9 +710,9 @@ module DigitButtonPressed(input  logic ButtonPressed,
 	
 endmodule
 
-////////////////////
-// KeypadScanner //
-//////////////////
+  /////////////////////////////////////////////////////////////////////////////////////
+ //									KeypadScanner									//
+/////////////////////////////////////////////////////////////////////////////////////
 
 /*
 Returns whether the user has pushed a button
@@ -803,9 +802,9 @@ module KeypadScanner(input  logic clk, reset,
 		
 endmodule
 
-//////////////
-// onecold //
-////////////
+  /////////////////////////////////////////////////////////////////////////////
+ //									onecold									//
+/////////////////////////////////////////////////////////////////////////////
 /*
 Takes in four rows of data; returns
 	flags indicating zero, one, or
@@ -821,6 +820,7 @@ module onecold(
 	logic [2:0] sum0, sum1, sum2, sum3;
 	logic [4:0] sumall;
 	
+	// Check if a digit is pressed
 	assign sum0 = keys0[0] + keys0[1] + keys0[2] + keys0[3];
 	assign sum1 = keys1[0] + keys1[1] + keys1[2] + keys1[3];
 	assign sum2 = keys2[0] + keys2[1] + keys2[2] + keys2[3];
@@ -828,10 +828,10 @@ module onecold(
 	assign sumall = sum0 + sum1 + sum2 + sum3;
 	
 	always_comb
-		if (sumall == 5'b10000) begin
+		if (sumall == 5'b10000) begin 	// No digit pressed
 			pressed = 1'b0;
 			Button = 8'b0;
-		end else begin
+		end else begin 					// Digit pressed
 			pressed = 1'b1;
 			if 		(sum0 == 4'b011) Button = {4'b1110, keys0};
 			else if (sum1 == 4'b011) Button = {4'b1101, keys1};
@@ -841,9 +841,9 @@ module onecold(
 endmodule
 
 
-//////////////
-// decoder //
-////////////
+  /////////////////////////////////////////////////////////////////////////////
+ //									decoder									//
+/////////////////////////////////////////////////////////////////////////////
 /*
 Simple two-to-four decoder
 */
@@ -861,9 +861,10 @@ module decoder(
 		endcase
 endmodule
 	
-///////////////
-// dispSel //
-/////////////
+  /////////////////////////////////////////////////////////////////////////////
+ //									dispSel									//
+/////////////////////////////////////////////////////////////////////////////
+
 /*
 This module sets pins to determine 
 	which display to turn on.
@@ -906,6 +907,13 @@ module DisplaySel(
 	end
 endmodule
 	
+  /////////////////////////////////////////////////////////////////////////////
+ //								  SevenSegDisplay							//
+/////////////////////////////////////////////////////////////////////////////
+
+/*
+This module displays the correct encoded digit.
+*/
 
 module SevenSegDisplay(
 	input  logic [3:0] D1, D2, D3, D4, DC,

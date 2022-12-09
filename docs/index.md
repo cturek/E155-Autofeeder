@@ -11,7 +11,7 @@ exclude: true
   <img src="./assets/img/Logo.png" alt="logo" width="100" />
 </div>
 
-<i>Automatic pet feeders have become an increasingly popular choice for pet owners around the globe. They offer an easy way to keep their pets fed while away, be it at work or on vacation. Autofeeders are also useful for measuring out exact portions, and pets become trained to eat at regular times and not to bother their owner when they're ready for another meal. In this project, we create an autofeeder capable of feeding animals at regularly scheduled times.</i>
+<i>Automatic pet feeders have become an increasingly popular choice for pet owners around the globe. They offer an easy way to keep their pets fed while away, be it at work or on vacation. Autofeeders are also useful for measuring out exact portions, and pets become trained to eat at regular times and not to bother their owner when they're ready for another meal. In this project, we design a configurable autofeeder capable of feeding animals at regularly scheduled times.</i>
 
 # Project Motivation
 
