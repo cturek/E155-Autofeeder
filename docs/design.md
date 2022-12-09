@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Design
-permalink: /
 ---
 
 # Mechanical Design

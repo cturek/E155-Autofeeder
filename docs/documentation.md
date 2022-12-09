@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Documentation
-permalink: /
 ---
 
 <font face = "Courier New" size = "3">
