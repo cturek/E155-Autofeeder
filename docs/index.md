@@ -26,3 +26,11 @@ The system will also be configurable into two different modes, “Timed mode” 
 The FPGA will keep track of the mode which the quad 7-segment display is operating in and control the digits themselves. The FPGA will also control the number of rotations of the stepper motor. The MCU will take the mode from the FPGA and return the appropriate message. This will describe the current LED display and/or prompt the user for keypad input. The MCU and FPGA will be connected over SPI. In the next sections we will describe the functions and routines that have been written for both the FPGA and the MCU.
 
 # System Block Diagram
+
+The high level block diagram is shown below:
+
+<div style="text-align: center">
+  <img src="assets/schematics/highlevel.jpg" alt="logo" width="500" />
+</div>
+
+The FPGA interfaces with an LED display, a keypad, and a motor. The MCU interfaces with a liquid crystal display (LCD) and a radio-frequency identification (RFID) reader. The FPGA and MCU are connected to tie the two systems together.
