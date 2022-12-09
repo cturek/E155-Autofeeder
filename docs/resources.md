@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Resources
-permalink: /resources/
 ---
 
 ## References
@@ -21,4 +20,11 @@ permalink: /resources/
 
 ## Inspiration
 
-The inspiration for this project came from the two cats the one of the team members owns. The team member bought an auto feeder online well before the second cat was adopted, where it met every needed from an auto feeder. When the second cat was adopted, it brought challenges that were not expected, such as having an extremely small tray for both cats to feed from. Simply buying a second autofeeder was not exactly an option that was desired, as they can be quite costly. So the team set out to make an autofeeder with customizable lower sections that could accomodate different feeding trays for varying numbers of cats. Due to time constraints, the mechanical aspect of the E155 project was limited to simply having one feeding tray, but the hope is that the team can continue on this project in the future and complete the goal of having customizable amounts!
+The inspiration for this project came from Manuel's two cats. He bought an auto feeder online well before the second cat was adopted, where it met every needed from an auto feeder *NOT SURE WHAT YOURE SAYING HERE*. When the second cat was adopted, it brought challenges that were not expected; for one, it was not ideal to have an single small tray for both cats to feed from. And simply buying a second autofeeder was not a desirable option, as they can be quite costly. So we set out to make an autofeeder with customizable lower sections that could accomodate different feeding trays for varying numbers of cats. Due to time constraints, the mechanical aspect of the E155 project was limited to simply having one feeding tray, but the hope is that the we can continue on this project in the future and complete the goal of having customizable amounts!
+
+
+<div style="text-align: center">
+  <img src="./assets/img/cats.jpeg" alt="cats" width="800" />
+</div>
+
+<p></p><center>Pepper (left) and Mashed Potato (right), the Inspiration for this Project</center>
